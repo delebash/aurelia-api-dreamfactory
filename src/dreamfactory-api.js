@@ -19,6 +19,10 @@ export class DreamFactoryApi {
   login() {
     return this.http.fetch(dreamfactoryconfig.loginurl(), {
       method: "POST",
+      headers: new Headers({
+        "X-DreamFactory-API-Key": dreamfactoryconfig.APP_NAME
+      }),
+
       body: json(dreamfactoryconfig.credentials())
     })
       .then(response => response.json())
@@ -37,7 +41,8 @@ export class DreamFactoryApi {
     return this.http.fetch(dreamfactoryconfig.dataurl(), {
       method: "POST",
       headers: new Headers({
-        "X-DreamFactory-API-Key": dreamfactoryconfig.APP_API_KEY,
+      "X-DreamFactory-API-Key": dreamfactoryconfig.APP_API_KEY,
+        "X-DreamFactory-Application-Name": dreamfactoryconfig.APP_NAME,
         "X-DreamFactory-Session-Token": token
       })
     })
