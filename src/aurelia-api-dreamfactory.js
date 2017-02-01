@@ -4,7 +4,7 @@ import {inject, computedFrom} from 'aurelia-framework';
 import dfconfig from './dreamfactoryconfig';
 
 @inject(AuthService,Endpoint.of('api'))
-export class AurelaiApiTest {
+export class AurelaiApiDreamfactory {
   constructor(authService,api) {
     this.api = api;
     this.authService = authService;
