@@ -4,7 +4,7 @@ import {inject, computedFrom} from 'aurelia-framework';
 import dfconfig from './dreamfactoryconfig';
 
 @inject(AuthService,Endpoint.of('api'))
-export class Login {
+export class AurelaiApiTest {
   constructor(authService,api) {
     this.api = api;
     this.authService = authService;
@@ -32,6 +32,6 @@ export class Login {
 
 activate(){
   return this.api.find('customers')
-    .then(customers => this.gotdata = customers);
+    .then(customers => this.gotdata = JSON.stringify(customers.resource[0]));
 }
 }

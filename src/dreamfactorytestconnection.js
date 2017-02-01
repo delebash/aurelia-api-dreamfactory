@@ -14,7 +14,7 @@ export class DreamFactoryTestConnection {
 
         this.dfapi.getdata().then(response => {
           if (response.resource.length > 0) {
-            this.gotdata = true
+            this.gotdata = JSON.stringify(response.resource[0])
           }
         })
       }
