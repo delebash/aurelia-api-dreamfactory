@@ -12,8 +12,10 @@ export class AurelaiApiDreamfactorySessionTest{
     this.sessionid = authService.getAccessToken()
   }
   activate() {
+    if (this.sessionid != undefined) {
     return this.api.find('customers')
       .then(customers => this.gotdata = JSON.stringify(customers.resource[0]));
+  }
   }
 }
 

@@ -28,7 +28,9 @@ export class AurelaiApiTest {
   get authenticated() {
     return this.authService.authenticated;
   }
-
+  logout() {
+    return this.authService.logout();
+  }
 
 activate(){
   return this.api.find('customers')
