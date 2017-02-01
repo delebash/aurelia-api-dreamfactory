@@ -10,7 +10,6 @@ export class AurelaiApiDreamfactory {
     this.authService = authService;
     this.username = null;
     this.gotdata = null;
-    this.api = api;
     this.authService.login(dfconfig.credentials())
       .then(response => {
         this.username = response.name;
