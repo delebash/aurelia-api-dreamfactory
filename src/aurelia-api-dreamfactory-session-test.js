@@ -8,7 +8,7 @@ export class AurelaiApiDreamfactorySessionTest{
     this.api = api;
     this.gotdata = null;
     this.authenticated = authService.authenticated
-    this.sessionid = authService.mysessiontoken;
+    this.sessionid = authService.sessiontoken;
   }
   activate() {
     if (this.sessionid != undefined) {

@@ -28,7 +28,7 @@ export class AurelaiAuthDreamfactory {
     return this.authService.authenticated;
   }
 
-  get mysessiontoken() {
+  get sessiontoken() {
     return this.authService.getAccessToken()
   }
   logout() {
