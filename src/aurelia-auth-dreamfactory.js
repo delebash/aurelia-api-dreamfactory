@@ -4,7 +4,7 @@ import {inject, computedFrom} from 'aurelia-framework';
 import dfconfig from './dreamfactoryconfig';
 
 @inject(AuthService,Endpoint.of('api'))
-export class AurelaiApiDreamfactory {
+export class AurelaiAuthDreamfactory {
   constructor(authService,api) {
     this.api = api;
     this.authService = authService;
@@ -26,6 +26,10 @@ export class AurelaiApiDreamfactory {
   @computedFrom('authService.authenticated')
   get authenticated() {
     return this.authService.authenticated;
+  }
+
+  get mysessiontoken() {
+    return this.authService.getAccessToken()
   }
   logout() {
     return this.authService.logout();
