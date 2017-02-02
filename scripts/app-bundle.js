@@ -64,7 +64,7 @@ define('aurelia-api-dreamfactory-session-test',['exports', 'aurelia-api', 'aurel
     return AurelaiApiDreamfactorySessionTest;
   }()) || _class);
 });
-define('aurelia-auth-dreamfactory',['exports', 'aurelia-authentication', 'aurelia-api', 'aurelia-framework', './dreamfactoryconfig'], function (exports, _aureliaAuthentication, _aureliaApi, _aureliaFramework, _dreamfactoryconfig) {
+define('aurelia-auth-dreamfactory',['exports', 'aurelia-authentication', 'aurelia-api', 'aurelia-framework', './config/dreamfactoryconfig'], function (exports, _aureliaAuthentication, _aureliaApi, _aureliaFramework, _dreamfactoryconfig) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -195,7 +195,7 @@ define('authConfig',['exports'], function (exports) {
     loginRedirect: ''
   };
 });
-define('dreamfactory-api',['exports', 'aurelia-fetch-client', 'aurelia-framework', './utils', './dreamfactoryconfig'], function (exports, _aureliaFetchClient, _aureliaFramework, _utils, _dreamfactoryconfig) {
+define('dreamfactory-api',['exports', 'aurelia-fetch-client', 'aurelia-framework', './utils', './config/dreamfactoryconfig'], function (exports, _aureliaFetchClient, _aureliaFramework, _utils, _dreamfactoryconfig) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -269,38 +269,6 @@ define('dreamfactory-api',['exports', 'aurelia-fetch-client', 'aurelia-framework
     return DreamFactoryApi;
   }()) || _class);
 });
-define('dreamfactoryconfig',['exports'], function (exports) {
-  'use strict';
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = {
-    INSTANCE_URL: 'https://api.ageektech.com',
-    APP_API_KEY: '1fd07b6f9a10b16602189d794db0abe8a44108d8da59a83a9f5ab46d00132692',
-    APP_NAME: 'northwind-app',
-    email: 'dftester@ageektech.com',
-    password: 'test12345',
-    api: '/api/v2/',
-    db: 'northwind/',
-    service: '_table/',
-    serviceObject: 'customers',
-    tokenKey: 'token',
-    overrideMethod: '?method=GET',
-    dataurl: function dataurl() {
-      return this.INSTANCE_URL + this.api + this.db + this.service + this.serviceObject + this.overrideMethod;
-    },
-    database: function database() {
-      return this.INSTANCE_URL + this.api + this.db + this.service;
-    },
-    loginurl: function loginurl() {
-      return this.INSTANCE_URL + '/api/v2/user/session';
-    },
-    credentials: function credentials() {
-      return { email: this.email, password: this.password };
-    }
-  };
-});
 define('dreamfactorytestconnection',['exports', 'aurelia-framework', './dreamfactory-api'], function (exports, _aureliaFramework, _dreamfactoryApi) {
   'use strict';
 
@@ -350,7 +318,7 @@ define('environment',["exports"], function (exports) {
     testing: true
   };
 });
-define('main',['exports', './environment', './dreamfactoryconfig', './authConfig'], function (exports, _environment, _dreamfactoryconfig, _authConfig) {
+define('main',['exports', './environment', './config/dreamfactoryconfig', './authConfig'], function (exports, _environment, _dreamfactoryconfig, _authConfig) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -510,6 +478,38 @@ define('welcome',['exports'], function (exports) {
 
     return UpperValueConverter;
   }();
+});
+define('config/dreamfactoryconfig',['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    INSTANCE_URL: 'https://api.ageektech.com',
+    APP_API_KEY: '1fd07b6f9a10b16602189d794db0abe8a44108d8da59a83a9f5ab46d00132692',
+    APP_NAME: 'northwind-app',
+    email: 'dftester@ageektech.com',
+    password: 'test12345',
+    api: '/api/v2/',
+    db: 'northwind/',
+    service: '_table/',
+    serviceObject: 'customers',
+    tokenKey: 'token',
+    overrideMethod: '?method=GET',
+    dataurl: function dataurl() {
+      return this.INSTANCE_URL + this.api + this.db + this.service + this.serviceObject + this.overrideMethod;
+    },
+    database: function database() {
+      return this.INSTANCE_URL + this.api + this.db + this.service;
+    },
+    loginurl: function loginurl() {
+      return this.INSTANCE_URL + '/api/v2/user/session';
+    },
+    credentials: function credentials() {
+      return { email: this.email, password: this.password };
+    }
+  };
 });
 define('resources/index',["exports"], function (exports) {
   "use strict";

@@ -1,7 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
 import {Utils} from './utils';
-import  dreamfactoryconfig from './dreamfactoryconfig'
+import dfconfig from './config/dreamfactoryconfig';
 
 
 let httpClient = new HttpClient();
@@ -17,18 +17,18 @@ export class DreamFactoryApi {
   }
 
   login() {
-    return this.http.fetch(dreamfactoryconfig.loginurl(), {
+    return this.http.fetch(dfconfig.loginurl(), {
       method: "POST",
       headers: new Headers({
-        "X-DreamFactory-API-Key": dreamfactoryconfig.APP_NAME
+        "X-DreamFactory-API-Key": dfconfig.APP_NAME
       }),
 
-      body: json(dreamfactoryconfig.credentials())
+      body: json(dfconfig.credentials())
     })
       .then(response => response.json())
       .then(data => {
         if (data.hasOwnProperty('session_token')) {
-          Utils.setToken(dreamfactoryconfig.tokenKey, data.session_token);
+          Utils.setToken(dfconfig.tokenKey, data.session_token);
           return data
         }
       });
@@ -36,13 +36,13 @@ export class DreamFactoryApi {
 
 
   getdata() {
-    let token = Utils.getToken(dreamfactoryconfig.tokenKey);
+    let token = Utils.getToken(dfconfig.tokenKey);
 
-    return this.http.fetch(dreamfactoryconfig.dataurl(), {
+    return this.http.fetch(dfconfig.dataurl(), {
       method: "POST",
       headers: new Headers({
-      "X-DreamFactory-API-Key": dreamfactoryconfig.APP_API_KEY,
-        "X-DreamFactory-Application-Name": dreamfactoryconfig.APP_NAME,
+      "X-DreamFactory-API-Key": dfconfig.APP_API_KEY,
+        "X-DreamFactory-Application-Name": dfconfig.APP_NAME,
         "X-DreamFactory-Session-Token": token
       })
     })

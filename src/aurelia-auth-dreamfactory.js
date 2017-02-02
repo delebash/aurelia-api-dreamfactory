@@ -1,7 +1,7 @@
 import {AuthService} from 'aurelia-authentication';
 import {Endpoint} from 'aurelia-api';
 import {inject, computedFrom} from 'aurelia-framework';
-import dfconfig from './dreamfactoryconfig';
+import dfconfig from './config/dreamfactoryconfig';
 
 @inject(AuthService,Endpoint.of('api'))
 export class AurelaiAuthDreamfactory {

@@ -1,5 +1,5 @@
 import environment from './environment';
-import dfconfig from './dreamfactoryconfig'
+import dfconfig from './config/dreamfactoryconfig'
 import authConfig from './authConfig';
 
 
